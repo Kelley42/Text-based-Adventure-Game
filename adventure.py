@@ -126,7 +126,7 @@ def make_weapon():
 
     print("\n--->\tYou decide to make a weapon. Surely the voices aren't real, but still a weapon would be nice to have. Especially with Stefansson's delusional ramblings. What if he becomes dangerous? Once he falls asleep and the rain has nearly stopped, you get up and sneak outside the makeshift shelter in search of a weapon. You look around but all you see are rocks and branches.\n")
 
-    make_weapon_response = input("You could try to make a bow and arrow out of wood. You could try to make a sharpened stick. Or you could just grab a big rock. Which weapon will you get?\n").lower()
+    make_weapon_response = input("You could try to make a bow and arrow out of branches. You could try to make a sharpened stick. Or you could just grab a big rock. Which weapon will you get?\n").lower()
 
     make_weapon_answer1 = ["bow", "arrow"]
     make_weapon_answer2 = ["sharpened", "stick"]
@@ -204,7 +204,7 @@ def center_island():
     global death_count, breakpoint
     breakpoint = 9
 
-    print('\n--->\tYou keep traveling further into the depths of the island. The tunnel seems to go on forever.\n\tFinally it opens into a huge chamber. The light from Stafansson\'s torch doesn\'t reach to the edges of the room, but you can hear scratching noises there.\n\tIn fact, you can hear noises everywhere.\n\tAnd whispers.\n\tnd shrieks.\n\tAnd the scratching sound of claws....\nYou are at last at the heart of the island, in what seems like the depths of Hell, and all you see are monstrous spirits encircling you both.\n\tAs the wispy shades of blackness fly past you, they screech in your ear, pull at your hair and clothes, pour ice into your veins.\n\tSome of these faces you can almost make out, they look so familiar... as if they had once been your old crew members. One of them even has the same hair as Stefansson. And the voice sounds so similar to his as it flashes past.\n\tYou realize the Stefansson beside you is not the real Stefansson\n\tAs his eyes turn toward yours, you feel a shift in the air around you, a heaviness, an electricity. And suddenly his eyes become sunken holes, his mouth twisting into something that no longer looks like a mouth.\n\tAnd then you realize this whole thing was a trap. That he lured everyone else here just like you.\n\tYou notice movement in the darkness. Enormous figures crouch in the corners, rising up as you watch in horror. More claws scraping against the ground.\n\tUp above, on a ledge jutting out from the rocky wall, something glistens in the torchlight. A sea of glittering objects blankets the ledge.')
+    print('\n--->\tYou keep traveling further into the depths of the island. The tunnel seems to go on forever.\n\tFinally it opens into a huge chamber. The light from Stafansson\'s torch doesn\'t reach to the edges of the room, but you can hear scratching noises there.\n\tIn fact, you can hear noises everywhere.\n\tAnd whispers.\n\tAnd shrieks.\n\tAnd the scratching sound of claws....\nYou are at last at the heart of the island, in what seems like the depths of Hell, and all you see are monstrous spirits encircling you both.\n\tAs the wispy shades of blackness fly past you, they screech in your ear, pull at your hair and clothes, and pour ice into your veins.\n\tSome of these faces you can almost make out, they look so familiar... as if they had once been your old crew members. One of them even has the same hair as Stefansson. And the voice sounds so similar to his as it flashes past.\n\tYou realize the Stefansson beside you is not the real Stefansson\n\tAs his eyes turn toward yours, you feel a shift in the air around you, a heaviness, an electricity. And suddenly his eyes become sunken holes, his mouth twisting into something that no longer looks like a mouth.\n\tAnd then you realize this whole thing was a trap. That he lured everyone else here just like you.\n\tYou notice movement in the darkness. Enormous figures crouch in the corners, rising up as you watch in horror. More claws scraping against the ground.\n\tUp above, on a ledge jutting out from the rocky wall, something glistens in the torchlight. A sea of glittering objects blankets the ledge.\n')
 
     center_island_response = input("Do you run away, stab a creature, attack Stefansson, or try to reach the ledge?\n").lower()
 
@@ -395,13 +395,13 @@ def error():
 
 
 def restart():
-    restart_response = input("\nPlay again?").lower()
+    restart_response = input("\nPlay again? Yes or no?\n").lower()
 
     restart_answer1 = ["yes", "y"]
     restart_answer2 = ["no", "n"]
 
     if any(match in restart_response for match in restart_answer1):
-        (intro)
+        intro()
     if any(match in restart_response for match in restart_answer2):
         exit()
 
@@ -414,7 +414,7 @@ def game_over():
 
     # If this is their 3rd GAME OVER, they must start over at the beginning.
     if death_count == 3:
-        print("Sorry, you must start over!\n")
+        print("GAME OVER!\n")
         restart()
 
     # Otherwise they get to choose to start over or just go back one step and redo last action. 
