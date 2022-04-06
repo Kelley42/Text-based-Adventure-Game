@@ -1,5 +1,6 @@
 death_count = 0
 breakpoint = 0
+weapon = False
 # Defs
 def intro():
     print("\tA storm has shipwrecked you and your crew on a tropical island. There are rumors that the island had a terrible curse put upon it long ago. Numerous treasure ships have mysteriously sunk along its coast, and the few who survived insisted that anyone who stepped foot on land was never seen again.\n\tNight has fallen and you have woken up on the beach alone in the cold rain. You can't see or hear any of your crew members. Cold and wet, you can't stop shivering. Suddenly you hear rustling in the bushes behind you.\n")
@@ -136,6 +137,8 @@ def make_weapon():
         game_over()
     elif any(match in make_weapon_response for match in make_weapon_answer2):
         print("\n--->\tYou decide to fashion a sharpened stick out of a thick branch. Now that you have a weapon, you feel safer.\n")
+        global weapon
+        weapon = True
         cave_tunnel()
     elif any(match in make_weapon_response for match in make_weapon_answer3):
         print("\n--->\tJust as you're grabbing the largest rock you can find, Stefansson walks up behind you. Seeing you with the rock in your hand, he grows suspicious of your intentions. He finds an equally large rock and hits you on the head with it.\nGAME OVER\n")
@@ -171,24 +174,30 @@ def cave_tunnel():
 
 
 def rat():
-    global death_count, breakpoint
+    global death_count, breakpoint, weapon
     breakpoint = 8
 
-    print("\n--->\tYou choose the right path. As you walk a little farther on, you notice you are in a hallway with ropes hanging here and there from the ceiling and walls. There is a weird smell all around you.\n\tYou see a rat on the wall beside you, gnawing on one of the ropes. With your sharpened knife, you kill it. You are so hungry. Finally you have something to eat.\n")
+    print("\n--->\tYou choose the right path. As you walk a little farther on, you notice you are in a hallway with ropes hanging here and there from the ceiling and walls. There is a weird smell all around you.\n\tYou see a rat on the wall beside you, gnawing on one of the ropes.\n")
 
-    rat_response = input("Do you eat the rat or leave it?\n").lower()
-
-    rat_answer1 = ["eat", "rat"]
-    rat_answer2 = ["leave"]
-
-    if any(match in rat_response for match in rat_answer1):
-        print("\n--->\tFinally! You get to eat something. You use Stefansson's torch to cook the rat, and you both sit down to enjoy the small meal.\n\tUnfortunately, whatever you sat on just shifted under your weight. Seems it was a lever of some kind to spring a trap. The room floods with water and you both drown.\nGAME OVER\n")
+    if weapon == False:
+        print("\tUnfortunately, the rope the rat is chewing was an important rope. It was holding up an array of sharp spears hanging from the ceiling. With the rope now chewed through, the spears come crashing down into you... and through you.\nGAME OVER\n")
         game_over()
-    elif any(match in rat_response for match in rat_answer2):
-        center_island()
-    else:
-        error()
-        rat()
+    else:    
+        print("\tWith your sharpened knife, you kill it. You are so hungry. Finally you have something to eat.\n")
+
+        rat_response = input("Do you eat the rat or leave it?\n").lower()
+
+        rat_answer1 = ["eat", "rat"]
+        rat_answer2 = ["leave"]
+
+        if any(match in rat_response for match in rat_answer1):
+            print("\n--->\tFinally! You get to eat something. You use Stefansson's torch to cook the rat, and you both sit down to enjoy the small meal.\n\tUnfortunately, whatever you sat on just shifted under your weight. Seems it was a lever of some kind to spring a trap. The room floods with water and you both drown.\nGAME OVER\n")
+            game_over()
+        elif any(match in rat_response for match in rat_answer2):
+            center_island()
+        else:
+            error()
+            rat()
 
 
 def center_island():
@@ -390,13 +399,13 @@ def error():
 def game_over():
     global death_count, breakpoint
     death_count += 1
-    print(f"Death count = {death_count}")
-    print(f"Breakpoint {breakpoint}")
+    lives = 3 - death_count
+    print(f"Lives: {lives}")
 
     # If this is their 3rd GAME OVER, they must start over at the beginning.
     if death_count == 3:
         print("Sorry, you must start over!")
-        return 1
+        exit()
 
     # Otherwise they get to choose to start over or just go back one step and redo last action. 
     else:
