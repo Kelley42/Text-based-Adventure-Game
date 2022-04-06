@@ -204,14 +204,14 @@ def center_island():
     global death_count, breakpoint
     breakpoint = 9
 
-    print('\n--->\tYou keep traveling further into the depths of the island. The tunnel seems to go on forever.\n\tFinally it opens into a huge chamber. The light from Stafansson\'s torch doesn\'t reach to the edges of the room, but you can hear scratching noises there.\n\tIn fact, you can hear noises everywhere.\n\tAnd whispers.\n\tnd shrieks.\n\tAnd the scratching sound of claws....\nYou are at last at the heart of the island, in what seems like the depths of Hell, and all you see are monstrous spirits encircling you both.\n\tAs the wispy shades of blackness fly past you, they screech in your ear, pull at your hair and clothes, pour ice into your veins.\n\tSome of these faces you can almost make out, they look so familiar... as if they had once been old friends. One of them even has the same hair as Stefansson. And the voice sounds so similar to his as it flashes past.\n\tIn the darkness, you notice something else. Enormous figures crouching in the corners, rising up as you watch in horror. More claws scraping against the ground.\n\t"Look!" Stefansson shouts, pointing at a ledge high above that spanned the length of the room. "The treasure!"\n\tSomething glitters there in the torchlight. A sea of glittering objects spread all over the ledge. So many trinkets and baubles and - a chest! Larger than you ever imagined.\n')
+    print('\n--->\tYou keep traveling further into the depths of the island. The tunnel seems to go on forever.\n\tFinally it opens into a huge chamber. The light from Stafansson\'s torch doesn\'t reach to the edges of the room, but you can hear scratching noises there.\n\tIn fact, you can hear noises everywhere.\n\tAnd whispers.\n\tnd shrieks.\n\tAnd the scratching sound of claws....\nYou are at last at the heart of the island, in what seems like the depths of Hell, and all you see are monstrous spirits encircling you both.\n\tAs the wispy shades of blackness fly past you, they screech in your ear, pull at your hair and clothes, pour ice into your veins.\n\tSome of these faces you can almost make out, they look so familiar... as if they had once been your old crew members. One of them even has the same hair as Stefansson. And the voice sounds so similar to his as it flashes past.\n\tYou realize the Stefansson beside you is not the real Stefansson\n\tAs his eyes turn toward yours, you feel a shift in the air around you, a heaviness, an electricity. And suddenly his eyes become sunken holes, his mouth twisting into something that no longer looks like a mouth.\n\tAnd then you realize this whole thing was a trap. That he lured everyone else here just like you.\n\tYou notice movement in the darkness. Enormous figures crouch in the corners, rising up as you watch in horror. More claws scraping against the ground.\n\tUp above, on a ledge jutting out from the rocky wall, something glistens in the torchlight. A sea of glittering objects blankets the ledge.')
 
-    center_island_response = input("Do you run away, try to stab a creature, attack Stefansson, or get the treasure?\n").lower()
+    center_island_response = input("Do you run away, stab a creature, attack Stefansson, or try to reach the ledge?\n").lower()
 
     center_island_answer1 = ["run", "away"]
-    center_island_answer2 = ["try", "stab", "creature"]
+    center_island_answer2 = ["stab", "creature"]
     center_island_answer3 = ["attack", "Stefansson"]
-    center_island_answer4 = ["get", "treasure"]
+    center_island_answer4 = ["try", "reach", "ledge"]
 
     if any(match in center_island_response for match in center_island_answer1):
         print("\n--->\tYou run as fast as you can out of the chamber. No treasure is worth that. In your haste, you fall through a trap door in the floor and into a pit of sharp spears.\nGAME OVER\n")
@@ -220,7 +220,7 @@ def center_island():
         print("\n--->\tYou pull the sharpened stick out of your pocket and run at the nearest hulking shape. You try to stab it, but it's too fast for you. It takes less than two seconds for it to slash you with it's powerful claws.\nGAME OVER\n")
         game_over()
     elif any(match in center_island_response for match in center_island_answer3):
-        print("\n--->\tRealizing the Stefansson beside you is not the real Stefansson, you pull out your sharpened stick and lunge at him. You are much too slow for him. As his eyes turn toward yours, you feel a shift in the air around you, a heaviness, an electricity. And suddenly his eyes become sunken holes, his mouth twisting into something that no longer looks like a mouth. And then you realize this whole thing was a trap. That he lured everyone else here just like you. And you will now join the rest of your crew....\nGAME OVER\n")
+        print("\n--->\tYou pull out your sharpened stick and lunge at the fake Stefansson. But you slowly realize, with his face that no longer looks like a face, ancient evil like this cannot be killed. You feel coldness in your veins, creeping toward your heart, and you understand that you will now join the rest of your crew....\nGAME OVER\n")
         game_over()
     elif any(match in center_island_response for match in center_island_answer4):
         treasure()
@@ -254,7 +254,7 @@ def ending():
     global death_count, breakpoint
     breakpoint = 11
 
-    print("\n--->\tYou have always been a fan of parkour, and now you finally get to put the skills you've only watched but never actually practiced to good use. Your fingers and feet find every groove, and your legs launch you to the platform holding the treasure. You kneel, sifting the gold coins and colored jewels between your fingers. You reach out to the chest...and stop. Should you open it?\n")
+    print("\n--->\tYou have always been a fan of parkour, and now you finally get to put the skills you've only watched but never actually practiced to good use. Your fingers and feet find every groove, and your legs launch you to the platform holding the treasure. You kneel, sifting the gold coins and colored jewels between your fingers. So many trinkets and baubles and - a chest! Larger than you ever imagined.You reach out to it...and stop. Should you open the chest?\n")
 
     ending_response = input("Yes or no?\n").lower()
 
@@ -265,7 +265,8 @@ def ending():
         print('\n--->\tYou open the treasure chest! Hooray!\n\tUnfortunately, this was the trap set for all who land on the island who manage to make it this far.\n\tYou have fallen victim to the curse of Treasure Island. All who open the chest of Captain Roberto "Bones" Luis\'s treasure become trapped souls on the island forever. But at least you are reunited with your beloved crew.\nGAME OVER\n')
         game_over()
     elif any(match in ending_response for match in ending_answer2):
-        print("\n--->\tYou decide not to open the chest. There's enough treasure laying by your feet, and you won't even be able to carry much of that out of here. Maybe you'll just leave it all here. If you ever make it out alive, you don't want to have any piece of this dreadful place with you.\n\tNow you just need a plan to escpae. You see a tiny space in the wall ahead and squeeze through. It's a secret tunnel out of the chamber. Hunching over, you run as fast as you can through the narrow tunnel. Through zigs and zags, miles upon miles, you finally make it back to the forest, and then to the beach.\n\tJust as the sun begins to set, you see a small brown dot upon the horizon growing larger. As it comes nearer, you can make out a mast and a sail, and you smile.\nTHE END\n")
+        print("\n--->\tYou decide not to open the chest. There's enough treasure laying by your feet, and you won't even be able to carry much of that out of here. Maybe you'll just leave it all here. If you ever make it out alive, you don't want to have any piece of this dreadful place with you.\n\tNow you just need a plan to escpae. You see a tiny space in the wall ahead and squeeze through. It's a secret tunnel out of the chamber. Hunching over, you run as fast as you can through the narrow tunnel. Through zigs and zags, miles upon miles, you finally make it back to the forest, and then to the beach.\n\tJust as the sun begins to set, you see a small brown dot upon the horizon growing larger. As it comes nearer, you can make out a mast and a sail, and you smile.\n\nTHE END!\n")
+        restart()
     else:
         error()
         ending()
@@ -277,9 +278,9 @@ def hungry():
 
     print("\n--->\tYou decide to stay put until daylight. No need to go running around in the dark in a strange place. When you wake up, it is finally daylight. You are so hungry.\n")
 
-    hungry_response = input("Do you look for food on the ground, climb a coconut tree, or stay put?\n").lower()
+    hungry_response = input("Do you explore the island for food, climb a coconut tree, or stay put?\n").lower()
 
-    hungry_answer1 = ["look", "food", "ground"]
+    hungry_answer1 = ["explore", "island", "food"]
     hungry_answer2 = ["climb", "coconut", "tree"]
     hungry_answer3 = ["stay", "put"]
 
@@ -371,22 +372,19 @@ def center_island2():
     global death_count, breakpoint
     breakpoint = 16
 
-    print('\n--->\tYou keep traveling further into the depths of the island. The tunnel seems to go on forever, an endless walk into darkness.\n\tFinally it opens into a huge chamber. One small torch hangs on the wall, the light swallowed up before it reaches the far edges of the room, but you can hear scratching noises there.\n\tIn fact, you can hear noises everywhere.\n\tAnd whispers.\n\tAnd shrieks.\n\tAnd the scratching sound of claws....\nYou are at last at the heart of the island, in what seems the depths of Hell, and all you see are monstrous spirits encircling you.\n\tAs this wispy shades of blackness fly past you, they screech in your ear, pull at your hair and clothes, pour ice into your veins. Some of these faces you can almost make out, they look so familiar... as if they had once been old friends.\nIn the darkness, you notice something else. Enormous figures crouching in the corners, rising up as you watch in horror. More claws scraping against the ground.\nSomething glitters above you in the torchlight. You glance up and see it. The treasure!\nA sea of glittering objects spread all over the ledge. So many trinkets and baubles and - a chest! Larger than you ever imagined.\n')
+    print('\n--->\tYou keep traveling further into the depths of the island. The tunnel seems to go on forever, an endless walk into darkness.\n\tFinally it splits into two paths, one that slopes gently down and another that rises sharply upward.\n')
 
-    center_island2_response = input("Do you run away, try to stab a creature, or get the treasure?\n").lower()
+    center_island2_response = input("Do you take the path that goes down or up?\n").lower()
 
-    center_island2_answer1 = ["run", "away"]
-    center_island2_answer2 = ["try", "stab", "creature"]
-    center_island2_answer3 = ["get", "treasure"]
+    center_island2_answer1 = ["down"]
+    center_island2_answer2 = ["up"]
 
     if any(match in center_island2_response for match in center_island2_answer1):
-        print("\n--->\tYou run as fast as you can out of the chamber. No treasure is worth that. In your haste, you fall through a trap door in the floor and into a pit of sharp spears.\nGAME OVER\n")
-        game_over()
+        print("\n--->\tYou take the path that leads down. Unfortunately, this tunnel is flooded with something that doesn't look or smell like water. You decide not to risk wading through it and turn back.\n")
+        center_island2()
     elif any(match in center_island2_response for match in center_island2_answer2):
-        print("\n--->\tYou pull the sharpened stick out of your pocket and run at the nearest hulking shape. You try to stab it, but it's too fast for you. It takes less than two seconds for it to slash you with it's powerful claws.\nGAME OVER\n")
+        print("\n--->\tYou take the path that leads up. This path is at such a steep incline that you have to climb on your hands and knees at some points. Finally it levels out, and you stand up in relief. Just then, a pair of bats emerge from the ceiling and fly toward your face. You scream, flail your arms about, and lose your balance. You fall back down the steep tunnel, break several bones, and smash your head against the wall.\nGAME OVER\n")
         game_over()
-    elif any(match in center_island2_response for match in center_island2_answer3):
-        treasure()
     else:
         error()
         center_island2() 
@@ -394,6 +392,18 @@ def center_island2():
 
 def error():
     print("!!!Incorrect response - try again!!!")
+
+
+def restart():
+    restart_response = input("\nPlay again?").lower()
+
+    restart_answer1 = ["yes", "y"]
+    restart_answer2 = ["no", "n"]
+
+    if any(match in restart_response for match in restart_answer1):
+        (intro)
+    if any(match in restart_response for match in restart_answer2):
+        exit()
 
 
 def game_over():
@@ -404,15 +414,15 @@ def game_over():
 
     # If this is their 3rd GAME OVER, they must start over at the beginning.
     if death_count == 3:
-        print("Sorry, you must start over!")
-        exit()
+        print("Sorry, you must start over!\n")
+        restart()
 
     # Otherwise they get to choose to start over or just go back one step and redo last action. 
     else:
-        start_over_response = input("Start over? Yes or No\n").lower()
+        start_over_response = input("Try again? Yes or No\n").lower()
 
-        start_over_answer1 = ["yes", "y"]
-        start_over_answer2 = ["no", "n"]
+        start_over_answer1 = ["no", "n"]
+        start_over_answer2 = ["yes", "y"]
   
         if any(match in start_over_response for match in start_over_answer1):
             intro()
