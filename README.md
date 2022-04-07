@@ -8,7 +8,7 @@ It was important to me to make it feel as old-school as possible, so I didn't wa
 
 While the original 3-step model had each GAME OVER branch completely ending the game, I wanted to make it less frustrating so users wouldn't have to start all the way at the beginning each time they died in the game. (Though this could be removed to make the game more difficult.) Instead, after each life lost, they would be offered a choice to either start over from the beginning or just to revert to the last step before their death so they can choose a new action. However, after their third death it's game over, and they must start from the beginning.
 
-While creating this game, organization within each section was the most difficult and something I rewrote many times. It was also difficult tracking all the branches within the story. Figuring out how to error-check all of their typed responses was also a good learning experience.
+While creating this game, organization within each section was the most difficult and something I rewrote many times. It was a good learning experience tracking all the branches within the story, using breakpoints to link functions to each other, and figuring out how to error-check all of their typed responses.
 
 
 
