@@ -3,7 +3,10 @@ breakpoint = 0
 weapon = False
 # Defs
 def intro():
-    print("\tA storm has shipwrecked you and your crew on a tropical island. There are rumors that the island had a terrible curse put upon it long ago. Numerous treasure ships have mysteriously sunk along its coast, and the few who survived insisted that anyone who stepped foot on land was never seen again.\n\tNight has fallen and you have woken up on the beach alone in the cold rain. You can't see or hear any of your crew members. Cold and wet, you can't stop shivering. Suddenly you hear rustling in the bushes behind you.\n")
+    global death_count
+    death_count = 0
+
+    print("--->\tA storm has shipwrecked you and your crew on a tropical island. There are rumors that the island had a terrible curse put upon it long ago. Numerous treasure ships have mysteriously sunk along its coast, and the few who survived insisted that anyone who stepped foot on land was never seen again.\n\tNight has fallen and you have woken up on the beach alone in the cold rain. You can't see or hear any of your crew members. Cold and wet, you can't stop shivering. Suddenly you hear rustling in the bushes behind you.\n")
 
     beach()
 
@@ -19,7 +22,7 @@ def beach():
     beach_answer3 = ["stay", "put"]
 
     if any(match in beach_response for match in beach_answer1):
-        print("\n--->\tOh, no! A very large sea monster has eaten you. That's too bad.\nGAME OVER\n")
+        print("\n--->\tOh, no! A very large sea monster has eaten you. That's too bad.\n")
         game_over()
     elif any(match in beach_response for match in beach_answer2):
         see_shape()
@@ -43,10 +46,10 @@ def see_shape():
     see_shape_answer3 = ["talk", "person"]
 
     if any(match in see_shape_response for match in see_shape_answer1):
-        print("\n--->\tYou run away. Unfortunately, you run into a tree, shaking a coconut loose. Your hard head is no match for a falling coconut.\nGAME OVER\n")
+        print("\n--->\tYou run away. Unfortunately, you run into a tree, shaking a coconut loose. Your hard head is no match for a falling coconut.\n")
         game_over()
     elif any(match in see_shape_response for match in see_shape_answer2):
-        print("\n--->\tYou jump at the shape, attacking it with all your strength and tackling it to the ground. Unfortunately, the thing you attacked has a weapon and you don't. You lose.\nGAME OVER\n")
+        print("\n--->\tYou jump at the shape, attacking it with all your strength and tackling it to the ground. Unfortunately, the thing you attacked has a weapon and you don't. You lose.\n")
         game_over()
     elif any(match in see_shape_response for match in see_shape_answer3):
         talk_crew()
@@ -69,7 +72,7 @@ def talk_crew():
     if any(match in talk_crew_response for match in talk_crew_answer1):
         crew_center()
     elif any(match in talk_crew_response for match in talk_crew_answer2):
-        print("\n--->\tYou run away. Unfortunately, you run into a tree, shaking a coconut loose. Your hard head is no match for a falling coconut.\nGAME OVER\n")
+        print("\n--->\tYou run away. Unfortunately, you run into a tree, shaking a coconut loose. Your hard head is no match for a falling coconut.\n")
         game_over()
     else:
         error()
@@ -93,7 +96,7 @@ def crew_center():
     elif any(match in crew_center_response for match in crew_center_answer2):
         make_weapon()
     elif any(match in crew_center_response for match in crew_center_answer3):
-        print("\n--->\tYou run away. Unfortunately, you slip off the rocky ledge and fall to your untimely death.\nGAME OVER\n")
+        print("\n--->\tYou run away. Unfortunately, you slip off the rocky ledge and fall to your untimely death.\n")
         game_over()
     else:
         error()
@@ -133,7 +136,7 @@ def make_weapon():
     make_weapon_answer3 = ["grab", "big", "rock"]
 
     if any(match in make_weapon_response for match in make_weapon_answer1):
-        print("\n--->\tYou try to make a bow and arrow out of tree branches. Unfortunately, the wood is too wet. In frustration, you throw the branches down and stomp your feet. In your tantrum, you slip and you fall... off the rocky ledge and to your death.\nGAME OVER\n")
+        print("\n--->\tYou try to make a bow and arrow out of tree branches. Unfortunately, the wood is too wet. In frustration, you throw the branches down and stomp your feet. In your tantrum, you slip and you fall... off the rocky ledge and to your death.\n")
         game_over()
     elif any(match in make_weapon_response for match in make_weapon_answer2):
         print("\n--->\tYou decide to fashion a sharpened stick out of a thick branch. Now that you have a weapon, you feel safer.\n")
@@ -141,7 +144,7 @@ def make_weapon():
         weapon = True
         cave_tunnel()
     elif any(match in make_weapon_response for match in make_weapon_answer3):
-        print("\n--->\tJust as you're grabbing the largest rock you can find, Stefansson walks up behind you. Seeing you with the rock in your hand, he grows suspicious of your intentions. He finds an equally large rock and hits you on the head with it.\nGAME OVER\n")
+        print("\n--->\tJust as you're grabbing the largest rock you can find, Stefansson walks up behind you. Seeing you with the rock in your hand, he grows suspicious of your intentions. He finds an equally large rock and hits you on the head with it.\n")
         game_over()
     else:
         error()
@@ -161,10 +164,10 @@ def cave_tunnel():
     cave_tunnel_answer3 = ["right"]
 
     if any(match in cave_tunnel_response for match in cave_tunnel_answer1):
-        print("\n--->\tYou choose the left path. As you walk a little farther on, you notice the ground sloping steeply downward. You both slip and fall, the ground becoming as slippery as a slide.\n\tYou fall for what feels like ages as the slide weaves this way and that, eventually dumping you into a crystal clear lake surrounded by an open clearing in the forest.\n\tSwimming up to the surface, you see the most beautiful waterfall pouring into the lake. Feeling the silky water on your skin, you suddenly have no memory of how you came to be here. All you know is this place is your home and you are ruler over it all.\n\tYou decide to climb to the top of the island's highest peak to make a throne for yourself there and declare yourself ruler of the island. Unfortunately, the highest peak is a volcano and you are not careful. You fall into lava and die.\nGAME OVER\n")
+        print("\n--->\tYou choose the left path. As you walk a little farther on, you notice the ground sloping steeply downward. You both slip and fall, the ground becoming as slippery as a slide.\n\tYou fall for what feels like ages as the slide weaves this way and that, eventually dumping you into a crystal clear lake surrounded by an open clearing in the forest.\n\tSwimming up to the surface, you see the most beautiful waterfall pouring into the lake. Feeling the silky water on your skin, you suddenly have no memory of how you came to be here. All you know is this place is your home and you are ruler over it all.\n\tYou decide to climb to the top of the island's highest peak to make a throne for yourself there and declare yourself ruler of the island. Unfortunately, the highest peak is a volcano and you are not careful. You fall into lava and die.\n")
         game_over()
     elif any(match in cave_tunnel_response for match in cave_tunnel_answer2):
-        print("\n--->\tYou choose the middle path. As you walk a little farther on, you notice you are in a small chamber. As Stefansson shines the torchlight around, the doorway starts to seal itself. You notice smoke filling the room. Through your last coughing gasps for air, you realize you are breathing poisonous gas.\nGAME OVER\n")
+        print("\n--->\tYou choose the middle path. As you walk a little farther on, you notice you are in a small chamber. As Stefansson shines the torchlight around, the doorway starts to seal itself. You notice smoke filling the room. Through your last coughing gasps for air, you realize you are breathing poisonous gas.\n")
         game_over()
     elif any(match in cave_tunnel_response for match in cave_tunnel_answer3):
         rat()
@@ -180,7 +183,7 @@ def rat():
     print("\n--->\tYou choose the right path. As you walk a little farther on, you notice you are in a hallway with ropes hanging here and there from the ceiling and walls. There is a weird smell all around you.\n\tYou see a rat on the wall beside you, gnawing on one of the ropes.\n")
 
     if weapon == False:
-        print("\tUnfortunately, the rope the rat is chewing was an important rope. It was holding up an array of sharp spears hanging from the ceiling. With the rope now chewed through, the spears come crashing down into you... and through you.\nGAME OVER\n")
+        print("\tUnfortunately, the rope the rat is chewing was an important rope. It was holding up an array of sharp spears hanging from the ceiling. With the rope now chewed through, the spears come crashing down into you... and through you.\n")
         game_over()
     else:    
         print("\tWith your sharpened knife, you kill it. You are so hungry. Finally you have something to eat.\n")
@@ -191,7 +194,7 @@ def rat():
         rat_answer2 = ["leave"]
 
         if any(match in rat_response for match in rat_answer1):
-            print("\n--->\tFinally! You get to eat something. You use Stefansson's torch to cook the rat, and you both sit down to enjoy the small meal.\n\tUnfortunately, whatever you sat on just shifted under your weight. Seems it was a lever of some kind to spring a trap. The room floods with water and you both drown.\nGAME OVER\n")
+            print("\n--->\tFinally! You get to eat something. You use Stefansson's torch to cook the rat, and you both sit down to enjoy the small meal.\n\tUnfortunately, whatever you sat on just shifted under your weight. Seems it was a lever of some kind to spring a trap. The room floods with water and you both drown.\n")
             game_over()
         elif any(match in rat_response for match in rat_answer2):
             center_island()
@@ -214,13 +217,13 @@ def center_island():
     center_island_answer4 = ["try", "reach", "ledge"]
 
     if any(match in center_island_response for match in center_island_answer1):
-        print("\n--->\tYou run as fast as you can out of the chamber. No treasure is worth that. In your haste, you fall through a trap door in the floor and into a pit of sharp spears.\nGAME OVER\n")
+        print("\n--->\tYou run as fast as you can out of the chamber. No treasure is worth that. In your haste, you fall through a trap door in the floor and into a pit of sharp spears.\n")
         game_over()
     elif any(match in center_island_response for match in center_island_answer2):
-        print("\n--->\tYou pull the sharpened stick out of your pocket and run at the nearest hulking shape. You try to stab it, but it's too fast for you. It takes less than two seconds for it to slash you with it's powerful claws.\nGAME OVER\n")
+        print("\n--->\tYou pull the sharpened stick out of your pocket and run at the nearest hulking shape. You try to stab it, but it's too fast for you. It takes less than two seconds for it to slash you with it's powerful claws.\n")
         game_over()
     elif any(match in center_island_response for match in center_island_answer3):
-        print("\n--->\tYou pull out your sharpened stick and lunge at the fake Stefansson. But you slowly realize, with his face that no longer looks like a face, ancient evil like this cannot be killed. You feel coldness in your veins, creeping toward your heart, and you understand that you will now join the rest of your crew....\nGAME OVER\n")
+        print("\n--->\tYou pull out your sharpened stick and lunge at the fake Stefansson. But you slowly realize, with his face that no longer looks like a face, ancient evil like this cannot be killed. You feel coldness in your veins, creeping toward your heart, and you understand that you will now join the rest of your crew....\n")
         game_over()
     elif any(match in center_island_response for match in center_island_answer4):
         treasure()
@@ -241,7 +244,7 @@ def treasure():
     treasure_answer2 = ["climb", "wall"]
 
     if any(match in treasure_response for match in treasure_answer1):
-        print("\n--->\tYou grab a vine and attempt to swing toward the ledge. Unfortunately, you've watched too many action movies because this rarely works in real life. You crash to the ground, and the monstrous creatures devour you. At least now you are reunited with your crew in the afterlife.\nGAME OVER\n")
+        print("\n--->\tYou grab a vine and attempt to swing toward the ledge. Unfortunately, you've watched too many action movies because this rarely works in real life. You crash to the ground, and the monstrous creatures devour you. At least now you are reunited with your crew in the afterlife.\n")
         game_over()
     elif any(match in treasure_response for match in treasure_answer2):
         ending()
@@ -262,7 +265,7 @@ def ending():
     ending_answer2 = ["no", "n"]
 
     if any(match in ending_response for match in ending_answer1):
-        print('\n--->\tYou open the treasure chest! Hooray!\n\tUnfortunately, this was the trap set for all who land on the island who manage to make it this far.\n\tYou have fallen victim to the curse of Treasure Island. All who open the chest of Captain Roberto "Bones" Luis\'s treasure become trapped souls on the island forever. But at least you are reunited with your beloved crew.\nGAME OVER\n')
+        print('\n--->\tYou open the treasure chest! Hooray!\n\tUnfortunately, this was the trap set for all who land on the island who manage to make it this far.\n\tYou have fallen victim to the curse of Treasure Island. All who open the chest of Captain Roberto "Bones" Luis\'s treasure become trapped souls on the island forever. But at least you are reunited with your beloved crew.\n')
         game_over()
     elif any(match in ending_response for match in ending_answer2):
         print("\n--->\tYou decide not to open the chest. There's enough treasure laying by your feet, and you won't even be able to carry much of that out of here. Maybe you'll just leave it all here. If you ever make it out alive, you don't want to have any piece of this dreadful place with you.\n\tNow you just need a plan to escpae. You see a tiny space in the wall ahead and squeeze through. It's a secret tunnel out of the chamber. Hunching over, you run as fast as you can through the narrow tunnel. Through zigs and zags, miles upon miles, you finally make it back to the forest, and then to the beach.\n\tJust as the sun begins to set, you see a small brown dot upon the horizon growing larger. As it comes nearer, you can make out a mast and a sail, and you smile.\n\nTHE END!\n")
@@ -287,10 +290,10 @@ def hungry():
     if any(match in hungry_response for match in hungry_answer1):
         waterfall()
     elif any(match in hungry_response for match in hungry_answer2):
-        print("\n--->\tYou decide to climb a nearby coconut tree and see if you can knock a coconut off. You saw someone do it in a movie once, and it didn't look too hard.\n\tUnfortunately, today is not your day. You get all the way up to the tree, slip and fall, and a coconut smashes onto your head.\nGAME OVER\n")
+        print("\n--->\tYou decide to climb a nearby coconut tree and see if you can knock a coconut off. You saw someone do it in a movie once, and it didn't look too hard.\n\tUnfortunately, today is not your day. You get all the way up to the tree, slip and fall, and a coconut smashes onto your head.\n")
         game_over()
     elif any(match in hungry_response for match in hungry_answer3):
-        print("\n--->\tYou decide to stay put a little longer. It just really doesn't seem very safe here. Maybe a rescue ship will come by soon? You fall asleep on the beach. Unfortunately this is feeding time for the giant sand crabs on this island. Guess you weren't the only one who was hungry.\nGAME OVER\n")
+        print("\n--->\tYou decide to stay put a little longer. It just really doesn't seem very safe here. Maybe a rescue ship will come by soon? You fall asleep on the beach. Unfortunately this is feeding time for the giant sand crabs on this island. Guess you weren't the only one who was hungry.\n")
         game_over()
     else:
         error()
@@ -310,10 +313,10 @@ def waterfall():
     waterfall_answer3 = ["go", "behind", "waterfall"]
 
     if any(match in waterfall_response for match in waterfall_answer1):
-        print("\n\--->tYou are so thirsty that you decide to drink from the luscious cool water. Unfortunately, something is wrong with this water. Immediately after drinking it, you fall into an everlasting sleep.\nGAME OVER\n")
+        print("\n\--->tYou are so thirsty that you decide to drink from the luscious cool water. Unfortunately, something is wrong with this water. Immediately after drinking it, you fall into an everlasting sleep.\n")
         game_over()
     elif any(match in waterfall_response for match in waterfall_answer2):
-        print("\n--->\tYou are so hot and dirty from trudging through the jungle all day. You really just want to get clean.\n\tUnfortunately, there's something not quite right about this lake.\n\tAfter a few moments in the silky water, you suddenly have no idea why you're here or how you got here. All you know is this place is your home and you are ruler over it all. You decide to climb to the top of the island's highest peak to make a throne for yourself there and declare yourself ruler of the island. Unfortunately, the highest peak is a volcano and you are not careful. You fall into lava and die.\nGAME OVER\n")
+        print("\n--->\tYou are so hot and dirty from trudging through the jungle all day. You really just want to get clean.\n\tUnfortunately, there's something not quite right about this lake.\n\tAfter a few moments in the silky water, you suddenly have no idea why you're here or how you got here. All you know is this place is your home and you are ruler over it all. You decide to climb to the top of the island's highest peak to make a throne for yourself there and declare yourself ruler of the island. Unfortunately, the highest peak is a volcano and you are not careful. You fall into lava and die.\n")
         game_over()
     elif any(match in waterfall_response for match in waterfall_answer3):
         behind_waterfall()
@@ -337,10 +340,10 @@ def behind_waterfall():
     if any(match in behind_waterfall_response for match in behind_waterfall_answer1):
         drawing()
     elif any(match in behind_waterfall_response for match in behind_waterfall_answer2):
-        print('\n--->\tYou call out, "Hello?" You\'re hoping to hear the voice of one of your crew.\n\tUnfortunately, it\'s not a person who answers. You see a massive creature that nature has no name for charging headlong at you. You barely get out the beginnings of a scream before it crashes into you and eats you for lunch.\nGAME OVER\n')
+        print('\n--->\tYou call out, "Hello?" You\'re hoping to hear the voice of one of your crew.\n\tUnfortunately, it\'s not a person who answers. You see a massive creature that nature has no name for charging headlong at you. You barely get out the beginnings of a scream before it crashes into you and eats you for lunch.\n')
         game_over()
     elif any(match in behind_waterfall_response for match in behind_waterfall_answer3):
-        print("\n--->\tYou run away, back toward the waterfall. But it's very slippery, and you fall over the edge into the lake.\n\tAfter a few moments in the silky water, you suddenly have no idea why you're here or how you got here. All you know is this place is your home and you are ruler over it all. You decide to climb to the top of the island's highest peak to make a throne for yourself there as ruler of the island. Unfortunately, the highest peak is a volcano and you are not careful. You fall into lava and die.\nGAME OVER\n")
+        print("\n--->\tYou run away, back toward the waterfall. But it's very slippery, and you fall over the edge into the lake.\n\tAfter a few moments in the silky water, you suddenly have no idea why you're here or how you got here. All you know is this place is your home and you are ruler over it all. You decide to climb to the top of the island's highest peak to make a throne for yourself there as ruler of the island. Unfortunately, the highest peak is a volcano and you are not careful. You fall into lava and die.\n")
         game_over()
     else:
         error()
@@ -361,7 +364,7 @@ def drawing():
     if any(match in drawing_response for match in drawing_answer1):
         center_island2()
     elif any(match in drawing_response for match in drawing_answer2):
-        print("\n--->\tYou run away, back toward the waterfall. But it's very slippery, and you fall over the edge into the lake.\n\tAfter a few moments in the silky water, you suddenly have no idea why you're here or how you got here. All you know is this place is your home and you are ruler over it all. You decide to climb to the top of the island's highest peak to make a throne for yourself there as ruler of the island. Unfortunately, the highest peak is a volcano and you are not careful. You fall into lava and die.\nGAME OVER\n")
+        print("\n--->\tYou run away, back toward the waterfall. But it's very slippery, and you fall over the edge into the lake.\n\tAfter a few moments in the silky water, you suddenly have no idea why you're here or how you got here. All you know is this place is your home and you are ruler over it all. You decide to climb to the top of the island's highest peak to make a throne for yourself there as ruler of the island. Unfortunately, the highest peak is a volcano and you are not careful. You fall into lava and die.\n")
         game_over()
     else:
         error()
@@ -383,7 +386,7 @@ def center_island2():
         print("\n--->\tYou take the path that leads down. Unfortunately, this tunnel is flooded with something that doesn't look or smell like water. You decide not to risk wading through it and turn back.\n")
         center_island2()
     elif any(match in center_island2_response for match in center_island2_answer2):
-        print("\n--->\tYou take the path that leads up. This path is at such a steep incline that you have to climb on your hands and knees at some points. Finally it levels out, and you stand up in relief. Just then, a pair of bats emerge from the ceiling and fly toward your face. You scream, flail your arms about, and lose your balance. You fall back down the steep tunnel, break several bones, and smash your head against the wall.\nGAME OVER\n")
+        print("\n--->\tYou take the path that leads up. This path is at such a steep incline that you have to climb on your hands and knees at some points. Finally it levels out, and you stand up in relief. Just then, a pair of bats emerge from the ceiling and fly toward your face. You scream, flail your arms about, and lose your balance. You fall back down the steep tunnel, break several bones, and smash your head against the wall.\n")
         game_over()
     else:
         error()
@@ -406,11 +409,27 @@ def restart():
         exit()
 
 
+def quit():
+    quit_response = input("Quit game? Yes or no?")
+
+    quit_answer1 = ["no", "n"]
+    quit_answer2 = ["yes", "y"]
+
+    if any(match in quit_response for match in quit_answer1):
+        intro()
+    elif any(match in quit_response for match in quit_answer2):
+        exit()
+    else:
+        error()
+        quit()
+
+
 def game_over():
     global death_count, breakpoint
     death_count += 1
     lives = 3 - death_count
-    print(f"Lives: {lives}")
+    print("\nYou lost a life!\n")
+    print(f"\nLives Remaining: {lives}")
 
     # If this is their 3rd GAME OVER, they must start over at the beginning.
     if death_count == 3:
@@ -425,7 +444,8 @@ def game_over():
         start_over_answer2 = ["yes", "y"]
   
         if any(match in start_over_response for match in start_over_answer1):
-            intro()
+            quit()
+
         elif any(match in start_over_response for match in start_over_answer2):
 
             # Breakpoints to revert to different parts of the story:
