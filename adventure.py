@@ -3,7 +3,7 @@ import textwrap
 death_count = 0
 breakpoint = 0
 weapon = False
-wrapper = textwrap.TextWrapper(width=80, break_long_words=False, replace_whitespace=False, subsequent_indent='     ')
+wrapper = textwrap.TextWrapper(width=80, break_long_words=False, replace_whitespace=False, subsequent_indent='   ')
 
 # Defs
 def intro():
